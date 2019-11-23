@@ -4,7 +4,7 @@
   "description": "Node-RED nodes to flatten and unflatten complex JSON objects",
   "main": "flatter.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha \"test/**/*_spec.js\""
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,10 @@
   },
   "dependencies": {
     "flat": "^5.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "node-red": "^1.0.3",
+    "node-red-node-test-helper": "^0.2.3"
   }
 }
