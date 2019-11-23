@@ -10,5 +10,5 @@ Start up Node-RED...
 $ node-red
 
 Unit Testing...
-$ npm install  --save-dev node-red-node-test-helper mocha
+$ npm install  --save-dev node-red-node-test-helper mocha node-red
 $ npm test
