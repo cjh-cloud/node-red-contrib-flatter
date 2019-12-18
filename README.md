@@ -1,7 +1,7 @@
 # node-red-contrib-flatter
 A Node-RED module for flattening complex JSON objects and reconstructing them
 
-[![Build Status](https://github.com/SenorGrande/node-red-contrib-flatter/workflows/ci/badge.svg?branch=master&event=push)](https://github.com/SenorGrande/node-red-contrib-flatter/actions)
+[![Build Status](https://github.com/SenorGrande/node-red-contrib-flatter/workflows/Node%20CI/badge.svg?branch=master&event=push)](https://github.com/SenorGrande/node-red-contrib-flatter/actions)
 
 This node uses the NPM package 'flat' to flatten a nested Javascript object in msg.payload,
 or unflatten an object with delimited keys.
