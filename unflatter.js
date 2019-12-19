@@ -5,7 +5,6 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         node.on('input', function(msg) {
-            // msg.payload = msg.payload.toUpperCase();
             msg.payload = unflatten(msg.payload);
             node.send(msg);
         });

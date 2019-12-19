@@ -5,8 +5,6 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         node.on('input', function(msg) {
-            // var flat = require('flat');
-            // msg.payload = msg.payload.toLowerCase();
             msg.payload = flatten(msg.payload);
             node.send(msg);
         });
