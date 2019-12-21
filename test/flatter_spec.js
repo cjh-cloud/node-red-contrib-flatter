@@ -60,4 +60,114 @@ describe('flat Node', function () {
             n1.receive({ payload: flattened }); // Input into the node
         });
     });
+
+    it('flat should not change non-objects: strings', function (done) {
+        var flow = [{ id: "n1", type: "flat", name: "flat",wires:[["n2"]] },
+        { id: "n2", type: "helper" }];
+        helper.load(flatterNode, flow, function () {
+            var n2 = helper.getNode("n2");
+            var n1 = helper.getNode("n1");
+
+            var original = "foo";
+            var flattened = "foo";
+
+            n2.on("input", function (msg) {
+                msg.should.have.property('payload', flattened); // Expected result
+                done();
+            });
+            n1.receive({ payload: original }); // Input into the node
+        });
+    });
+
+    it('unflat should not change non-objects: strings', function (done) {
+        var flow = [{ id: "n1", type: "unflat", name: "unflat",wires:[["n2"]] },
+        { id: "n2", type: "helper" }];
+        helper.load(unflatterNode, flow, function () {
+            var n2 = helper.getNode("n2");
+            var n1 = helper.getNode("n1");
+
+            var original = "foo";
+            var flattened = "foo";
+
+            n2.on("input", function (msg) {
+                msg.should.have.property('payload', original); // Expected result
+                done();
+            });
+            n1.receive({ payload: flattened }); // Input into the node
+        });
+    });
+
+    it('flat should not change non-objects: integers', function (done) {
+        var flow = [{ id: "n1", type: "flat", name: "flat",wires:[["n2"]] },
+        { id: "n2", type: "helper" }];
+        helper.load(flatterNode, flow, function () {
+            var n2 = helper.getNode("n2");
+            var n1 = helper.getNode("n1");
+
+            var original = 1;
+            var flattened = 1;
+
+            n2.on("input", function (msg) {
+                msg.should.have.property('payload', flattened); // Expected result
+                done();
+            });
+            n1.receive({ payload: original }); // Input into the node
+        });
+    });
+
+    it('unflat should not change non-objects: integers', function (done) {
+        var flow = [{ id: "n1", type: "unflat", name: "unflat",wires:[["n2"]] },
+        { id: "n2", type: "helper" }];
+        helper.load(unflatterNode, flow, function () {
+            var n2 = helper.getNode("n2");
+            var n1 = helper.getNode("n1");
+
+            var original = 1;
+            var flattened = 1;
+
+            n2.on("input", function (msg) {
+                msg.should.have.property('payload', original); // Expected result
+                done();
+            });
+            n1.receive({ payload: flattened }); // Input into the node
+        });
+    });
+
+    // A null value will return an error with the flat library
+    it('flat should not change null', function (done) {
+        var flow = [{ id: "n1", type: "flat", name: "flat",wires:[["n2"]] },
+        { id: "n2", type: "helper" }];
+        helper.load(flatterNode, flow, function () {
+            var n2 = helper.getNode("n2");
+            var n1 = helper.getNode("n1");
+
+            var original = null;
+            var flattened = null;
+
+            n2.on("input", function (msg) {
+                msg.should.have.property('payload', flattened); // Expected result
+                done();
+            });
+            n1.receive({ payload: original }); // Input into the node
+        });
+    });
+
+    it('unflat should not change null', function (done) {
+        var flow = [{ id: "n1", type: "unflat", name: "unflat",wires:[["n2"]] },
+        { id: "n2", type: "helper" }];
+        helper.load(unflatterNode, flow, function () {
+            var n2 = helper.getNode("n2");
+            var n1 = helper.getNode("n1");
+
+            var original = null;
+            var flattened = null;
+
+            n2.on("input", function (msg) {
+                msg.should.have.property('payload', original); // Expected result
+                done();
+            });
+            n1.receive({ payload: flattened }); // Input into the node
+        });
+    });
+
 });
