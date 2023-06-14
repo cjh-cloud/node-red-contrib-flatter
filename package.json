@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-flatter",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Node-RED nodes to flatten and unflatten complex JSON objects",
   "keywords": [
     "node-red",
@@ -34,11 +34,11 @@
     }
   },
   "dependencies": {
-    "flat": "^5.0.0"
+    "flat": "^5.0.2"
   },
   "devDependencies": {
-    "mocha": "^7.1.2",
-    "node-red": "^1.0.3",
-    "node-red-node-test-helper": "^0.2.3"
+    "mocha": "^10.2.0",
+    "node-red": "^3.0.2",
+    "node-red-node-test-helper": "^0.3.1"
   }
 }
